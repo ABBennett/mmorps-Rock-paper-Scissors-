@@ -13,9 +13,13 @@ thead {
   font-size: 24px;
 }
 
+table {
+  margin-top: 35px;
+}
+
 .fixed_form {
   position: fixed;
-  bottom: 350px;
+  bottom: 300px;
   margin: auto;
   width: 100%;
 }
