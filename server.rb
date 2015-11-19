@@ -57,9 +57,6 @@ post '/choose' do
         session[:user_score] += 1
       end
     end
-
-
-
   redirect '/index'
 end
 

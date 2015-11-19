@@ -1,0 +1,41 @@
+h1 {
+  font-family: impact;
+}
+body {
+  font-family: Tahoma;
+}
+
+span {
+  font-size: 50px;
+
+}
+thead {
+  font-size: 24px;
+}
+
+.fixed_form {
+  position: fixed;
+  bottom: 350px;
+  margin: auto;
+  width: 100%;
+}
+
+input[type=submit] {
+    width: 150px;
+    height: 25px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+button {
+  width: 150px;
+  height: 25px;
+  background:#ccc;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}

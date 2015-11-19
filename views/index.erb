@@ -2,30 +2,44 @@
 <html>
   <head>
     <title>Massively Multiplayer Online Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="/css/foundation.min.css">
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    <h1>MMORPS</h1>
+    <h1 class="title text-center">MMORPS</h1>
+
+
+    <center>
+
+      <table>
+        <thead>
+            <tr>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+
+        </thead>
+        <tbody>
+          <tr><td>Human:</td><td><%= session[:user_score]%></td></tr>
+          <tr><td>Computer:</td><td><%= session[:comp_score]%></td></tr>
+        </tbody>
+      </table>
+
+    </center>
+
+  <div>
+    <center>
     <% if session[:visit_count] != 1 %>
-      <h2>You chose <%= session[:user_choice] %>, Computer chose <%= session[:comp_choice] %>.</h2>
+      <h3>You chose <span><%= session[:user_choice] %></span>, Computer chose <span><%= session[:comp_choice] %></span>.</h3>
     <% end %>
+    <center>
+  </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Player</th>
-          <th>Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Human:</td><td><%= session[:user_score]%></td></tr>
-        <tr><td>Computer:</td><td><%= session[:comp_score]%></td></tr>
-      </tbody>
-    </table>
-
+<center>
+  <div class="fixed_form">
     <% if @win == nil %>
       <form action="/choose" method="post">
-        <h2>Choose!</h2>
+        <h3>CHOOSE</h3>
 
         <input type="submit" name="choice" value="Rock">
         <input type="submit" name="choice" value="Paper">
@@ -36,14 +50,15 @@
       <% if @win == true %>
         <h2>Player wins!</h2>
       <% elsif @win == false %>
-        <h2>Computer wins :(</h2>
+        <h2>Computer wins!</h2>
         <% end %>
 
         <form action="/reset" method="post">
         <button>Play Again</button>
       </form>
 
-      <% end %>
-
+    <% end %>
+  </div>
+</center>
   </body>
 </html>
