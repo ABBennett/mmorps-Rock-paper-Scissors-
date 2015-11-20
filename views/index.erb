@@ -4,61 +4,77 @@
     <title>Massively Multiplayer Online Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="/css/foundation.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/vendor/modernizr.js"></script>
   </head>
   <body>
     <h1 class="title text-center">MMORPS</h1>
 
+    <% if session[:visit_count] != 1 %>
+      <div class ="display">
+        <div class="column small-4">
+          <center>
+            <h3>You chose <span><%= session[:user_choice] %></span></h3>
+          </center>
+        </div>
+
+        <div class="column small-4">
+          <center>
+            <table>
+              <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Score</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr><td class="user">Human:</td><td class="number"><%= session[:user_score]%></td></tr>
+                <tr><td class="user">Computer:</td><td class="number"><%= session[:comp_score]%></td></tr>
+              </tbody>
+            </table>
+          </center>
+        </div>
+
+        <div class="column small-4">
+          <center>
+          <h3> Computer chose <span><%= session[:comp_choice] %></span>.</h3>
+        </center>
+        </div>
+
+      </div>
+    <% end %>
+
+
 
     <center>
+      <div class="form_location">
+        <% if @win == nil %>
+          <form action="/choose" method="post">
+            <h3>CHOOSE</h3>
 
-      <table>
-        <thead>
-            <tr>
-              <th>Player</th>
-              <th>Score</th>
-            </tr>
+            <input type="submit" name="choice" value="Rock">
+            <input type="submit" name="choice" value="Paper">
+            <input type="submit" name="choice" value="Scissors">
+          </form>
 
-        </thead>
-        <tbody>
-          <tr><td>Human:</td><td><%= session[:user_score]%></td></tr>
-          <tr><td>Computer:</td><td><%= session[:comp_score]%></td></tr>
-        </tbody>
-      </table>
+        <% else %>
+          <% if @win == true %>
+            <h2>Player wins!</h2>
+          <% elsif @win == false %>
+            <h2>Computer wins!</h2>
+            <% end %>
 
+            <form action="/reset" method="post">
+            <button>Play Again</button>
+          </form>
+
+        <% end %>
+      </div>
     </center>
 
-  <div>
-    <center>
-    <% if session[:visit_count] != 1 %>
-      <h3>You chose <span><%= session[:user_choice] %></span>, Computer chose <span><%= session[:comp_choice] %></span>.</h3>
-    <% end %>
-    <center>
-  </div>
-
-<center>
-  <div class="fixed_form">
-    <% if @win == nil %>
-      <form action="/choose" method="post">
-        <h3>CHOOSE</h3>
-
-        <input type="submit" name="choice" value="Rock">
-        <input type="submit" name="choice" value="Paper">
-        <input type="submit" name="choice" value="Scissors">
-      </form>
-
-    <% else %>
-      <% if @win == true %>
-        <h2>Player wins!</h2>
-      <% elsif @win == false %>
-        <h2>Computer wins!</h2>
-        <% end %>
-
-        <form action="/reset" method="post">
-        <button>Play Again</button>
-      </form>
-
-    <% end %>
-  </div>
-</center>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>

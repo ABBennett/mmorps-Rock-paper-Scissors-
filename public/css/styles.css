@@ -3,6 +3,7 @@ h1 {
 }
 body {
   font-family: Tahoma;
+  background-color: #c4c4c4;
 }
 
 span {
@@ -11,15 +12,28 @@ span {
 }
 thead {
   font-size: 24px;
+  background-color: #696969;
+}
+
+.display {
+  margin-top: 10px;
+}
+
+.user {
+  background-color: #c6c6c6;
+}
+
+.number {
+  background-color: #e0e0e0;
 }
 
 table {
   margin-top: 35px;
 }
 
-.fixed_form {
+.form_location {
   position: fixed;
-  bottom: 300px;
+  bottom: 150px;
   margin: auto;
   width: 100%;
 }
@@ -27,7 +41,8 @@ table {
 input[type=submit] {
     width: 150px;
     height: 25px;
-    background:#ccc;
+    margin-right: 10px;
+    background:#585858;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 10px;
@@ -37,7 +52,7 @@ input[type=submit] {
 button {
   width: 150px;
   height: 25px;
-  background:#ccc;
+  background: #585858;
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 10px;
